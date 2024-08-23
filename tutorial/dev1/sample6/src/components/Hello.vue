@@ -6,4 +6,5 @@ const message = inject("message")
 
 <template>
   <div>{{ message }}</div>
+  aaa
 </template>

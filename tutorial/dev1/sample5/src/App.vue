@@ -18,6 +18,6 @@ const addItem = () => {
   <p>{{ message }}</p>
   <button type="button" @click="addItem">追加</button>
   <ul>
-    <li v-for="(item, index) in list" :key="index">{{ item }}</li>
+    <li v-for="(item, index) in list" :key="item">{{ item }}:{{ index }}{{list}}</li>
   </ul>
 </template>

@@ -13,4 +13,5 @@ export default (io, socket) => {
   socket.on("publishEvent", (data) => {
     io.sockets.emit("publishEvent", data)
   })
+
 }

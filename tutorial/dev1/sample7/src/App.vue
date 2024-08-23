@@ -5,11 +5,15 @@ import io from "socket.io-client"
 const socket = io()
 const messages = reactive([])
 const onClick = () => {
-  const message = prompt(`
+  const message1 = prompt(`
   メッセージを入力してください。
   このメッセージはすべてのクライアントに送信されます。
   `)
-  // メッセージ入力イベント（sendMessageEvent）を送信する
+
+  alert("入力されたメッセージ："+message1)
+
+  // メッセージ入力イベント（sendMessageEvent）を送信
+  socket.emit("sendMessageEvent", message1)
 
 }
 
@@ -30,9 +34,9 @@ onMounted(() => {
   })
 
   // メッセージ表示イベント（receiveMessageEvent）を受信する
-  socket.on("", (data) => {
+  socket.on("receiveMessageEvent", (data) => {
     // 画面上にメッセージを表示
-    messages.unshift()
+    messages.unshift("入力されたメッセージ："+data)
   })
 })
 </script>
